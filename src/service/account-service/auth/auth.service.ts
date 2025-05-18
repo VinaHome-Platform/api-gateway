@@ -10,6 +10,6 @@ export class AuthService {
 
   loginBMS(data: LoginFormBMS) {
     console.log('loginBMS', data);
-    return this.client.send('login_bms', data);
+    return this.client.send({ ac: 'login_bms' }, data);
   }
 }
