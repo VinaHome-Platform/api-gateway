@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Type } from 'class-transformer';
 import { IsBoolean, IsInt, IsString, ValidateNested } from 'class-validator';
 
-class AcceptAppDto {
+class AcceptApp {
   @IsBoolean()
   bms: boolean;
 
@@ -38,6 +37,9 @@ export class CreateAccountStaff {
   @IsString()
   date_of_birth: Date;
 
+  @IsString()
+  gender: string;
+
   @IsBoolean()
   status: boolean;
 
@@ -48,8 +50,8 @@ export class CreateAccountStaff {
   account_type: string;
 
   @ValidateNested()
-  @Type(() => AcceptAppDto)
-  accept_app: AcceptAppDto;
+  @Type(() => AcceptApp)
+  accept_app: AcceptApp;
 
   @IsInt()
   company_id: number;
