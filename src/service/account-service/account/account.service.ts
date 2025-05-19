@@ -9,6 +9,6 @@ export class AccountService {
   ) {}
   createAccountStaff(data: CreateAccountStaff) {
     console.log('createAccountStaff', data);
-    return this.client.send({ ac: 'create_account_staff' }, data);
+    // return this.client.send({ ac: 'create_account_staff' }, data);
   }
 }
