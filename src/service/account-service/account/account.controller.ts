@@ -8,7 +8,7 @@ export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
   @Post('/create-account-staff')
-  async createAccountStaff(@Body() data: CreateAccountStaff) {
+  createAccountStaff(@Body() data: CreateAccountStaff) {
     return this.accountService.createAccountStaff(data);
   }
 }

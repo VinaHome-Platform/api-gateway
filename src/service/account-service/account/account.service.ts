@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
+  HttpException,
   Inject,
   Injectable,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { CreateAccountStaff } from './account.dto';
 import { firstValueFrom } from 'rxjs';
 
@@ -17,18 +19,8 @@ export class AccountService {
     @Inject('ACCOUNT_SERVICE') private readonly client: ClientProxy,
   ) {}
 
-  async createAccountStaff(data: CreateAccountStaff) {
-    try {
-      console.log(data);
-      const result = await firstValueFrom(
-        this.client.send({ ac: 'create_account_staff' }, data),
-      );
-      return result;
-    } catch (error) {
-      throw new InternalServerErrorException({
-        success: false,
-        message: 'Máy chủ dịch vụ không phản hồi',
-      });
-    }
+  createAccountStaff(data: CreateAccountStaff) {
+    console.log(data);
+    return this.client.send({ ac: 'create_account_staff' }, data);
   }
 }
