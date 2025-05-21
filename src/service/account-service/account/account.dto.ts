@@ -46,13 +46,43 @@ export class CreateAccountStaff {
   @IsString()
   role: string;
 
-  @IsString()
-  account_type: string;
-
   @ValidateNested()
   @Type(() => AcceptApp)
   accept_app: AcceptApp;
 
   @IsInt()
   company_id: number;
+}
+
+export class UpdateAccountStaff {
+  @IsString()
+  username: string;
+
+  @IsString()
+  number_phone: string;
+
+  @IsString()
+  full_name: string;
+
+  @IsString()
+  email: string;
+
+  @IsString()
+  address: string;
+
+  @IsString()
+  date_of_birth: Date;
+
+  @IsString()
+  gender: string;
+
+  @IsBoolean()
+  status: boolean;
+
+  @IsString()
+  role: string;
+
+  @ValidateNested()
+  @Type(() => AcceptApp)
+  accept_app: AcceptApp;
 }
