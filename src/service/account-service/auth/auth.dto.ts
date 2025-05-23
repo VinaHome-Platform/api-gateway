@@ -7,3 +7,7 @@ export class LoginFormBMS {
   @IsString()
   password: string;
 }
+export class RefreshToken {
+  @IsString()
+  refresh_token: string;
+}

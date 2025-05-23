@@ -1,9 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-import { Body, Controller, Delete, Param, Post, Put } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { AccountService } from './account.service';
 import { CreateAccountStaff, UpdateAccountStaff } from './account.dto';
+import { AuthGuard } from 'src/guards/auth.guard';
+import { Roles } from 'src/decorator/roles.decorator';
 
 @Controller('v1/account')
+@UseGuards(AuthGuard)
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
@@ -23,5 +37,11 @@ export class AccountController {
   @Delete('/delete-account-staff/:id')
   deleteAccountStaff(@Param('id') id: string) {
     return this.accountService.deleteAccountStaff(id);
+  }
+
+  @Get('/test')
+  @Roles('STAFF')
+  test(@Req() req: any) {
+    return { message: 'test', account_id: req.account_id, role: req.role };
   }
 }
