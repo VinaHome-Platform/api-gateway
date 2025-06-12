@@ -7,4 +7,7 @@ export default () => ({
   jwt: {
     secret: process.env.JWT_SECRET,
   },
+  nats: {
+    server: process.env.NATS_SERVER,
+  },
 });
