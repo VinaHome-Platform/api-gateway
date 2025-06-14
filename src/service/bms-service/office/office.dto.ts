@@ -18,6 +18,7 @@ export class DTO_RQ_CreateOffice {
   address: string;
 
   @IsString()
+  @IsOptional()
   note: string;
 
   @IsBoolean()
@@ -42,6 +43,10 @@ export class DTO_RQ_OfficePhone {
 }
 
 export class DTO_RQ_UpdateOffice {
+  @IsInt()
+  @IsOptional()
+  id: number;
+
   @IsString()
   name: string;
 
@@ -52,6 +57,7 @@ export class DTO_RQ_UpdateOffice {
   address: string;
 
   @IsString()
+  @IsOptional()
   note: string;
 
   @IsBoolean()

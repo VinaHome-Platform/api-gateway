@@ -26,4 +26,7 @@ export class OfficeService {
   getListOfficeNameByCompany(id: number) {
     return this.client.send({ bms: 'get_list_office_name_by_company' }, id);
   }
+  getListOfficeByCompany_2(id: number) {
+    return this.client.send({ bms: 'get_list_office_by_company_2' }, id);
+  }
 }

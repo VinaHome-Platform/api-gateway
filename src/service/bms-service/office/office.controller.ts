@@ -49,6 +49,12 @@ export class OfficeController {
     return this.officeService.getListOfficeByCompany(id);
   }
 
+  @Get('/get-list-office-by-company-2/:id')
+  @Roles('ADMIN')
+  getListOffice_2(@Param('id') id: number) {
+    return this.officeService.getListOfficeByCompany_2(id);
+  }
+
   @Get('/get-list-office-name-by-company/:id')
   @Roles('ADMIN', 'STAFF')
   getListOfficeName(@Param('id') id: number) {

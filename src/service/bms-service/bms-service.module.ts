@@ -4,6 +4,8 @@ import { OfficeController } from './office/office.controller';
 import { OfficeService } from './office/office.service';
 import { CompanyController } from './company/company.controller';
 import { CompanyService } from './company/company.service';
+import { RouteController } from './route/route.controller';
+import { RouteService } from './route/route.service';
 
 @Module({
   imports: [
@@ -17,8 +19,8 @@ import { CompanyService } from './company/company.service';
       },
     ]),
   ],
-  controllers: [CompanyController, OfficeController],
-  providers: [CompanyService, OfficeService],
+  controllers: [CompanyController, OfficeController, RouteController],
+  providers: [CompanyService, OfficeService, RouteService],
   exports: [ClientsModule],
 })
 export class BmsServiceModule {}
