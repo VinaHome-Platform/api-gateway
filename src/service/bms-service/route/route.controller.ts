@@ -1,8 +1,17 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { RouteService } from './route.service';
 import { Roles } from 'src/decorator/roles.decorator';
-import { DTO_RQ_CreateRoute } from './route.dto';
+import { DTO_RQ_CreateRoute, DTO_RQ_UpdateRoute } from './route.dto';
 
 @Controller('v2/route')
 @UseGuards(AuthGuard)
@@ -19,5 +28,30 @@ export class RouteController {
   @Roles('ADMIN')
   getListRouteByCompany(@Param('id') id: number) {
     return this.routeService.getListRouteByCompany(id);
+  }
+
+  @Put('/update-route/:id')
+  @Roles('ADMIN')
+  updateRoute(@Param('id') id: number, @Body() data: DTO_RQ_UpdateRoute) {
+    return this.routeService.updateRoute(id, data);
+  }
+
+  @Post('/update-route-order')
+  @Roles('ADMIN')
+  updateRouteOrder(
+    @Body()
+    data: {
+      route_id: number;
+      display_order: number;
+      company_id: number;
+    }[],
+  ) {
+    return this.routeService.batchUpdateRouteOrder(data);
+  }
+
+  @Delete('/delete-route/:id')
+  @Roles('ADMIN')
+  deleteRoute(@Param('id') id: number) {
+    return this.routeService.deleteRoute(id);
   }
 }
