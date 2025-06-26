@@ -26,4 +26,7 @@ export class RouteService {
   deleteRoute(id: number) {
     return this.client.send({ bms: 'delete_route' }, id);
   }
+  getListRouteNameByCompany(id: number) {
+    return this.client.send({ bms: 'get_list_route_name_by_company' }, id);
+  }
 }

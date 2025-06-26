@@ -26,4 +26,7 @@ export class AccountService {
   deleteAccountStaff(id: string) {
     return this.client.send({ ac: 'delete_account_staff' }, id);
   }
+  getListAccountByCompany(id: number) {
+    return this.client.send({ ac: 'get_list_account_by_company' }, id);
+  }
 }

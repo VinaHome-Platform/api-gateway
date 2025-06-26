@@ -1,5 +1,11 @@
 import { Type } from 'class-transformer';
-import { IsBoolean, IsInt, IsString, ValidateNested } from 'class-validator';
+import {
+  IsBoolean,
+  IsInt,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
 
 class AcceptApp {
   @IsBoolean()
@@ -29,6 +35,7 @@ export class CreateAccountStaff {
   full_name: string;
 
   @IsString()
+  @IsOptional()
   email: string;
 
   @IsString()

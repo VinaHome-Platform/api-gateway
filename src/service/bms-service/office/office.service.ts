@@ -21,6 +21,7 @@ export class OfficeService {
     return this.client.send({ bms: 'update_office' }, { id, data });
   }
   getListOfficeByCompany(id: number) {
+    console.log('Fetching list of offices for company ID:', id);
     return this.client.send({ bms: 'get_list_office_by_company' }, id);
   }
   getListOfficeNameByCompany(id: number) {

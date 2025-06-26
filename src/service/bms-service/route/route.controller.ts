@@ -54,4 +54,10 @@ export class RouteController {
   deleteRoute(@Param('id') id: number) {
     return this.routeService.deleteRoute(id);
   }
+
+  @Get('/get-list-route-name-by-company/:id')
+  @Roles('ADMIN', 'STAFF')
+  getListRouteNameByCompany(@Param('id') id: number) {
+    return this.routeService.getListRouteNameByCompany(id);
+  }
 }

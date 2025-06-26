@@ -39,6 +39,12 @@ export class AccountController {
     return this.accountService.deleteAccountStaff(id);
   }
 
+  @Get('/get-list-account-by-company/:id')
+  @Roles('ADMIN')
+  getListAccountByCompany(@Param('id') id: number) {
+    return this.accountService.getListAccountByCompany(id);
+  }
+
   @Get('/test')
   @Roles('STAFF')
   test(@Req() req: any) {

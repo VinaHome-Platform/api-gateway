@@ -15,7 +15,7 @@ import { BmsServiceModule } from './service/bms-service/bms-service.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.get<string>('jwt.secret'),
+        secret: configService.get<string>('JWT_SECRET'),
       }),
       global: true,
     }),
