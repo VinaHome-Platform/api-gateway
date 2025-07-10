@@ -8,6 +8,8 @@ import { RouteController } from './route/route.controller';
 import { RouteService } from './route/route.service';
 import { SeatController } from './seat/seat.controller';
 import { SeatService } from './seat/seat.service';
+import { ScheduleController } from './schedule/schedule.controller';
+import { ScheduleService } from './schedule/schedule.service';
 
 @Module({
   imports: [
@@ -26,8 +28,15 @@ import { SeatService } from './seat/seat.service';
     OfficeController,
     RouteController,
     SeatController,
+    ScheduleController,
   ],
-  providers: [CompanyService, OfficeService, RouteService, SeatService],
+  providers: [
+    CompanyService,
+    OfficeService,
+    RouteService,
+    SeatService,
+    ScheduleService,
+  ],
   exports: [ClientsModule],
 })
 export class BmsServiceModule {}

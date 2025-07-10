@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { SeatService } from './seat.service';
 import { Roles } from 'src/decorator/roles.decorator';
 import { AuthGuard } from 'src/guards/auth.guard';
