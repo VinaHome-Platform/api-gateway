@@ -29,4 +29,10 @@ export class RouteService {
   getListRouteNameByCompany(id: number) {
     return this.client.send({ bms: 'get_list_route_name_by_company' }, id);
   }
+  getListRouteNameActionByCompany(id: number) {
+    return this.client.send(
+      { bms: 'get_list_route_name_action_by_company' },
+      id,
+    );
+  }
 }

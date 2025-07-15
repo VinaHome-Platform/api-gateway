@@ -60,4 +60,10 @@ export class RouteController {
   getListRouteNameByCompany(@Param('id') id: number) {
     return this.routeService.getListRouteNameByCompany(id);
   }
+
+  @Get('/get-list-route-name-action-by-company/:id')
+  @Roles('ADMIN', 'STAFF')
+  getListRouteNameActionByCompany(@Param('id') id: number) {
+    return this.routeService.getListRouteNameActionByCompany(id);
+  }
 }

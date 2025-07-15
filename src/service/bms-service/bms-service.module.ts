@@ -10,6 +10,10 @@ import { SeatController } from './seat/seat.controller';
 import { SeatService } from './seat/seat.service';
 import { ScheduleController } from './schedule/schedule.controller';
 import { ScheduleService } from './schedule/schedule.service';
+import { TripController } from './trip/trip.controller';
+import { TripService } from './trip/trip.service';
+import { TicketController } from './ticket/ticket.controller';
+import { TicketService } from './ticket/ticket.service';
 
 @Module({
   imports: [
@@ -29,6 +33,8 @@ import { ScheduleService } from './schedule/schedule.service';
     RouteController,
     SeatController,
     ScheduleController,
+    TripController,
+    TicketController,
   ],
   providers: [
     CompanyService,
@@ -36,6 +42,8 @@ import { ScheduleService } from './schedule/schedule.service';
     RouteService,
     SeatService,
     ScheduleService,
+    TripService,
+    TicketService,
   ],
   exports: [ClientsModule],
 })

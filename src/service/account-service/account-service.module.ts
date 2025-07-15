@@ -4,6 +4,8 @@ import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
 import { AccountController } from './account/account.controller';
 import { AccountService } from './account/account.service';
+import { AgentController } from './agent/agent.controller';
+import { AgentService } from './agent/agent.service';
 
 @Module({
   imports: [
@@ -18,7 +20,7 @@ import { AccountService } from './account/account.service';
       },
     ]),
   ],
-  controllers: [AuthController, AccountController],
-  providers: [AuthService, AccountService],
+  controllers: [AuthController, AccountController, AgentController],
+  providers: [AuthService, AccountService, AgentService],
 })
 export class AccountServiceModule {}
