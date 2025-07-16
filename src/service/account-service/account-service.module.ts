@@ -12,10 +12,9 @@ import { AgentService } from './agent/agent.service';
     ClientsModule.register([
       {
         name: 'ACCOUNT_SERVICE',
-        transport: Transport.TCP,
+        transport: Transport.NATS,
         options: {
-          host: process.env.HOST_ACCOUNT_SERVICE,
-          port: 4001,
+          servers: process.env.NATS_SERVER ? [process.env.NATS_SERVER] : [],
         },
       },
     ]),

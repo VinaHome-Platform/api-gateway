@@ -4,6 +4,7 @@ import { AccountServiceModule } from './service/account-service/account-service.
 import configuration from './config/configuration';
 import { JwtModule } from '@nestjs/jwt';
 import { BmsServiceModule } from './service/bms-service/bms-service.module';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { BmsServiceModule } from './service/bms-service/bms-service.module';
     AccountServiceModule,
     BmsServiceModule,
   ],
-  controllers: [],
+  controllers: [HealthController],
   providers: [],
 })
 export class AppModule {}
